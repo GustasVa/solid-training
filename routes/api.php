@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LiskovSubstitution\Problem\UserController;
 use App\Http\Controllers\OpenClose\Solution\EventBusController;
 use App\Http\Controllers\SingleResponsibility\Solution\ApiController;
 use Illuminate\Http\Request;
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/air-table', [ApiController::class, 'handle']);
 Route::post('/event-bus', [EventBusController::class, 'handle']);
+
+Route::get('/user/{userId}', [UserController::class, 'show']);
