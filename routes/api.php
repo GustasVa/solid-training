@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InterfaceSegregation\Solution\PriceController;
 use App\Http\Controllers\LiskovSubstitution\Problem\UserController;
 use App\Http\Controllers\OpenClose\Solution\EventBusController;
 use App\Http\Controllers\SingleResponsibility\Solution\ApiController;
@@ -21,7 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// SRP
 Route::get('/air-table', [ApiController::class, 'handle']);
+
+// OpenClose
 Route::post('/event-bus', [EventBusController::class, 'handle']);
 
+// Liskov Substitution
 Route::get('/user/{userId}', [UserController::class, 'show']);
+
+// Interface Segregation
+Route::post('/price/calculate', [PriceController::class, 'calculate']);
