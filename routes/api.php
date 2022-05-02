@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DependencyInversion\Solution\FileController;
 use App\Http\Controllers\InterfaceSegregation\Solution\PriceController;
 use App\Http\Controllers\LiskovSubstitution\Problem\UserController;
 use App\Http\Controllers\OpenClose\Solution\EventBusController;
@@ -33,3 +34,7 @@ Route::get('/user/{userId}', [UserController::class, 'show']);
 
 // Interface Segregation
 Route::post('/price/calculate', [PriceController::class, 'calculate']);
+
+// Dependency Inversion
+Route::post('/file/read', [FileController::class, 'read']);
+Route::post('/file/write', [FileController::class, 'write']);
